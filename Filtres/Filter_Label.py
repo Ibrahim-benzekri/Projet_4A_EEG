@@ -113,7 +113,7 @@ def process_eeg_file(input_file, filtered_file, labeled_file):
 
 # Example usage
 if __name__ == "__main__":
-    input_file = "EEG.csv"
+    input_file = "../EEG.csv"
     filtered_file = "Filtered/filtered_eeg_data.csv"
     labeled_file = "Filtered/labeled_eeg_data.csv"
 

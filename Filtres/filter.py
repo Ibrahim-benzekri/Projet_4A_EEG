@@ -1,9 +1,8 @@
 import pandas as pd
-import numpy as np
 import mne
 
 # Step 1: Load the CSV file from the disk
-csv_file = 'C:\\Users\\PC\\Desktop\\EEG\\ENregistrement_artefacts\\lesDaux.csv'  # to replace with our file path
+csv_file = 'C:\\Users\\PC\\Desktop\\EEG\\ENregistrement_artefacts\\ARTF\\Oculaire2.csv'  # to replace with our file path
 data = pd.read_csv(csv_file)
 
 # Step 2: Extract EEG data columns (EEG-ch1 to EEG-ch10)
@@ -39,13 +38,14 @@ high_cutoff = 30.0
 raw.filter(l_freq=low_cutoff, h_freq=high_cutoff)
 
 raw.set_eeg_reference(ref_channels=["EEG-ch10"])
+raw.drop_channels(["EEG-ch10"])
+channel_names.remove('EEG-ch10')
 
 #  Save the filtered data back to a CSV
 filtered_data = raw.get_data().T  # Transpose back to samples x channels
 filtered_df = pd.DataFrame(filtered_data, columns=channel_names)
-filtered_df.to_csv('C:\\Users\\PC\\Desktop\\EEG\\ENregistrement_artefacts\\filtered_lesDaux.csv', index=False)
+filtered_df.to_csv('C:\\Users\\PC\\Desktop\\EEG\\ENregistrement_artefacts\\Passe-bande\\musculaire2.csv', index=False)
 
-print("Filtering complete and saved to 'filtered_data.csv'.")
 
 
 # important info:

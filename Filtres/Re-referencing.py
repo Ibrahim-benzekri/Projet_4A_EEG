@@ -2,7 +2,7 @@ import pandas as pd
 import mne
 
 # Step 1: Load the CSV file from the disk
-csv_file = 'C:\\Users\\PC\\Desktop\\EEG\\Codes\\EEG.csv'  # to replace with our file path
+csv_file = '/EEG.csv'  # to replace with our file path
 data = pd.read_csv(csv_file)
 
 # Sampling frequency: The sampling rate, is indicated in the documentation of the headset, it's 256 SPS (Samples Per Second).

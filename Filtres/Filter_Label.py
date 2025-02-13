@@ -1,6 +1,5 @@
 import pandas as pd
 import mne
-import numpy as np
 
 # Function to filter EEG data
 def filter_eeg_data(input_file, output_file, sfreq=256, l_freq=8, h_freq=30):

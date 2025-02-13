@@ -2,14 +2,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Chemin du fichier CSV filtré
-filtered_csv_file = '/Filtred_Tests/test1.csv'
+filtered_csv_file = 'C:\\Users\\PC\\Desktop\\EEG\\ENregistrement_artefacts\\Passe-bande\\musculaire2.csv'
 
 # Charger les données filtrées
 filtered_data = pd.read_csv(filtered_csv_file)
 
 # Liste des colonnes EEG
 eeg_columns = ['EEG-ch1', 'EEG-ch2', 'EEG-ch3', 'EEG-ch4', 'EEG-ch5',
-               'EEG-ch6', 'EEG-ch7', 'EEG-ch8', 'EEG-ch9', 'EEG-ch10']
+               'EEG-ch6', 'EEG-ch7', 'EEG-ch8', 'EEG-ch9']
 
 # Fréquence d'échantillonnage
 sfreq = 256  # Échantillons par seconde
@@ -18,7 +18,7 @@ sfreq = 256  # Échantillons par seconde
 n_samples = int(7 * sfreq)
 
 # Limiter les données aux 7 premières secondes
-limited_data = filtered_data.iloc[:n_samples]
+limited_data = filtered_data.iloc[n_samples:2*n_samples]
 
 # Créer une figure pour les tracés
 plt.figure(figsize=(15, 10))

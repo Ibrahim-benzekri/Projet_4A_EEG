@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Chemin du fichier CSV filtré
-filtered_csv_file = 'C:\\Users\\PC\\Desktop\\EEG\\ENregistrement_artefacts\\filtered_lesDaux.csv'
+filtered_csv_file = 'C:\\Users\\PC\\Desktop\\EEG\\ENregistrement_artefacts\\filtered_les2_ICA.csv'
 
 # Charger les données filtrées
 filtered_data = pd.read_csv(filtered_csv_file)

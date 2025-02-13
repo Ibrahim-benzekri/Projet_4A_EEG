@@ -50,9 +50,6 @@ def preprocess_eeg_data(eeg_data_batch):
     montage = mne.channels.make_standard_montage(MONTAGE_NAME)
     raw.set_montage(montage)
 
-    # Début du chronométrage
-    start_time = time.time()
-
     # Filtrage passe-bande (IIR pour éviter les distorsions sur petits signaux)
     raw.filter(l_freq=LOW_CUTOFF, h_freq=HIGH_CUTOFF)
 
@@ -68,9 +65,6 @@ def preprocess_eeg_data(eeg_data_batch):
     ica.exclude = eog_indices  # Exclusion des composantes détectées
     ica.apply(raw)
 
-    # Fin du chronométrage
-    processing_time = (time.time() - start_time) * 1000
-    print(f"Processing time : {processing_time:.2f} ms")
 
     # Extraction des données filtrées
     filtered_data = raw.get_data().T
